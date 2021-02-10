@@ -19,6 +19,13 @@
                 <div class="col-sm-6">
                     <input type="text" name="name" id="task-name" class="form-control">
                 </div>
+                <div>
+                    <select name="cat_name">
+                        @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
 
             <!-- Add Task Button -->
@@ -55,6 +62,9 @@
                                 <!-- Task Name -->
                                 <td class="table-text">
                                     <div>{{ $task->name }}</div>
+                                </td>
+                                <td class="table-text">
+                                    <div>{{ $task->category->name }}</div>
                                 </td>
 
                                <!-- Delete Button -->

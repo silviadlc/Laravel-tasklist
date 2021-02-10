@@ -15,13 +15,20 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//llistat de tasks
+
 Route::get('/', function () {
     $tasks = Task::orderBy('created_at', 'asc')->get();
+    $categories = Category::all();
+
 
     return view('tasks', [
-        'tasks' => $tasks
+        'tasks' => $tasks,
+        'categories' => $categories
     ]);
 });
+
+//llistat de categories
 
 Route::get('/cats', function (){
     $categories = Category::orderBy('created_at', 'asc')->get();
@@ -29,6 +36,14 @@ Route::get('/cats', function (){
     return view('categories', [
         'categories' => $categories
     ]);
+});
+
+//llista de tasks per categories 
+
+Route::get('/catlist', function (){
+    $cats = Category::all();
+
+    return view('catlist', ['cats' => $cats]);
 });
 
 /**
@@ -46,6 +61,7 @@ Route::post('/task', function (Request $request) {
     }
     $task = new Task;
     $task->name = $request->name;
+    $task->cat_id = $request->cat_name;
     $task->save();
 
     return redirect('/');

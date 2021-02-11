@@ -38,12 +38,14 @@ Route::get('/cats', function (){
     ]);
 });
 
-//llista de tasks per categories 
+//llistat de tasks per categories 
 
 Route::get('/catlist', function (){
     $cats = Category::all();
 
-    return view('catlist', ['cats' => $cats]);
+    return view('catlist', [
+        'cats' => $cats
+    ]);
 });
 
 /**

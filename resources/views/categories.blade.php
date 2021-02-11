@@ -7,6 +7,8 @@
     <div class="panel-body">
         <!-- Display Validation Errors -->
         @include('common.errors')
+        <h1>Llistat de categories</h1>
+        <p><a href="/">Tornar a l'inici</a></p>
 
         <!-- New Task Form -->
         <form action="{{ url('category') }}" method="POST" class="form-horizontal">

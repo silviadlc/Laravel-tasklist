@@ -7,6 +7,10 @@
     <div class="panel-body">
         <!-- Display Validation Errors -->
         @include('common.errors')
+        <h1>Tutorial tasklist amb Laravel</h1>
+
+        <p><a href="/catlist">Veure llistat de tasques per categoria</a></p>
+        <p><a href="/cats">Crear nova categoria</a></p>
 
         <!-- New Task Form -->
         <form action="{{ url('task') }}" method="POST" class="form-horizontal">

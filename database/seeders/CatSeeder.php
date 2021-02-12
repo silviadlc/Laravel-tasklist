@@ -2,14 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-
+use App\Models\Category;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
-class UserSeeder extends Seeder
+class CatSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,7 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {     
-        User::factory()
+        Category::factory()
         ->count(15)
         //->hasPosts(1)
         ->create();
